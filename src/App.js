@@ -7,9 +7,10 @@ function App() {
 
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
 
-  const [lionScore, setHomeScore] = useState(0);
-  const [tigerScore, setAwayScore] = useState(0);
+  const [lionScore, setHomeScore] = useState(0); // Setting and initialing State for home team
+  const [tigerScore, setAwayScore] = useState(0); // Setting and initialising state for away team
 
+  // Functions for setting team scores
   function ltTouchDown() {
     setHomeScore(lionScore + 7);
   }
