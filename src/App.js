@@ -4,38 +4,19 @@ import "./App.css";
 import BottomRow from "./BottomRow";
 
 function App() {
-
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
 
   const [lionScore, setHomeScore] = useState(0); // Setting and initialing State for home team
   const [tigerScore, setAwayScore] = useState(0); // Setting and initialising state for away team
 
-  // Functions for setting team scores
-  function ltTouchDown() {
-    setHomeScore(lionScore + 7);
-  }
-
-  function ttTouchDown() {
-    setAwayScore(tigerScore + 7);
-  }
-
-  function ltFieldGoal() {
-    setHomeScore(lionScore + 3);
-  }
-
-  function ttFieldGoal() {
-    setAwayScore(tigerScore + 3);
-  }
-
-
   // Handler Function
   const handler = (teamName, teamScore) => {
-    if(teamName === "Lions") {
-      setHomeScore(lionScore + teamScore);
+    if (teamName === "Lions") {
+      return () => setHomeScore(lionScore + teamScore);
     } else {
-      setAwayScore(lionScore + teamScore);
+      return () => setAwayScore(tigerScore + teamScore);
     }
-  }
+  };
 
   return (
     <div className="container">
@@ -59,18 +40,30 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={ltTouchDown} className="homeButtons__touchdown">
+          <button
+            onClick={handler("Lions", 7)}
+            className="homeButtons__touchdown"
+          >
             Home Touchdown
           </button>
-          <button onClick={ltFieldGoal} className="homeButtons__fieldGoal">
+          <button
+            onClick={handler("Lions", 3)}
+            className="homeButtons__fieldGoal"
+          >
             Home Field Goal
           </button>
         </div>
         <div className="awayButtons">
-          <button onClick={ttTouchDown} className="awayButtons__touchdown">
+          <button
+            onClick={handler("Tigers", 7)}
+            className="awayButtons__touchdown"
+          >
             Away Touchdown
           </button>
-          <button onClick={ttFieldGoal} className="awayButtons__fieldGoal">
+          <button
+            onClick={handler("Tigers", 3)}
+            className="awayButtons__fieldGoal"
+          >
             Away Field Goal
           </button>
         </div>
