@@ -5,12 +5,10 @@ import BottomRow from "./BottomRow";
 
 function App() {
 
-  // STEP - 1
-  const [homeTeam, setHTScore] = setState(0);
-  const [awayTeam, setATScore] = setState(0);
-
-
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+
+  const [lionTeam, setLTScore] = useState(0);
+  const [tigerTeam, setTTScore] = useState(0);
 
   return (
     <div className="container">
