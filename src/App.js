@@ -27,6 +27,16 @@ function App() {
     setAwayScore(tigerScore + 3);
   }
 
+
+  // Handler Function
+  const handler = (teamName, teamScore) => {
+    if(teamName === "Lions") {
+      setHomeScore(lionScore + teamScore);
+    } else {
+      setAwayScore(lionScore + teamScore);
+    }
+  }
+
   return (
     <div className="container">
       <section className="scoreboard">
